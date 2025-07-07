@@ -64,14 +64,7 @@ mkdir -p $mod_id/{system/fonts,META-INF/com/google/android}
 echo '[*] Copying fonts over...'
 
 for i in $@; do
-	case "$(otfinfo -i "$i" | grep 'Subfamily' | cut -d':' -f2 | xargs)" in
-		*) cp $i $mod_id/system/fonts/Roboto-Regular.ttf ;;
-		'Bold') cp $i $mod_id/system/fonts/Roboto-Bold.ttf ;;
-		'Bold Italic') cp $i $mod_id/system/fonts/Roboto-BoldItalic.ttf ;;
-		'Medium') cp $i $mod_id/system/fonts/Roboto-Medium.ttf ;;
-		'Italic') cp $i $mod_id/system/fonts/Roboto-Italic.ttf ;;
-		'Light') cp $i $mod_id/system/fonts/Roboto-Light.ttf ;;
-	esac
+	cp $i $mod_id/system/fonts
 done
 
 # GENERATING 'module.prop'
