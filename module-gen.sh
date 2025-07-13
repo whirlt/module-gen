@@ -1,33 +1,31 @@
 #!/usr/bin/env bash
 
-# MAGISK FONT MODULE GENERATOR
-
 if [[ $# -lt 1 || $1 == '--help' || $1 == '-h' ]]; then
 	echo "Usage: $0 <fonts>"
 	exit 1
 fi
 
 
-
-MFMG_VER='v1.0'
+SFMG_VER='v1.0'
 answer='n'
 
 while true; do
 	clear
 
-	echo -e "Systemless Font Module Generator - $MFMG_VER by @whirlt
+	echo -e "Systemless Font Module Generator - $SFMG_VER by @whirlt
 
 Before generating a module, please take all of the following in account:
 
 - I am not responsible for any damage caused by this tool. Although damage is very unlikely.
-- Every module generated with this tool is made to be used with \033[1;4mMagisk.\033[0m
-- For the generation to work, you need \033[1;4motfinfo\033[0m, \033[1;4mzip\033[0m as well as \033[1;4mwget\033[0m installed on your computer.
+- Every module generated with this tool is made to be used with \033[1;4mMagisk\033[0m although it should work on \033[1;4mKernelSU\033[0m or \033[1;4mAPatch\033[0m.
+- For the generation to work, you need \033[1;4mzip\033[0m as well as \033[1;4mwget\033[0m installed on your computer.
 - You will need an internet connection, unless the install script is present in the working directory.
 - Using an unix-like operating system like GNU/Linux is recommended.
 "
 
 	for i in $@; do
-		[[ ! -f $i ]] && echo -e "\033[31;1mWARNING!\033[0m '$i' wasn't found, proceed with caution."
+		[[ ! -f $i ]] && echo -e "\033[31;1mWARNING!\033[0m '$i' wasn't found, proceed with caution.
+		"
 	done
 
 	read -p $'\033[32;1m>\033[0m Give the module a name! ' mod_name
